@@ -1,0 +1,23 @@
+def virusIndices(p, v):
+    n = len(p)
+    m = len(v)
+    result = []
+    for i in range(n - m + 1):
+        mismatch_count = 0
+        for j in range(m):
+            if p[i + j] != v[j]:
+                mismatch_count += 1
+                if mismatch_count > 1:
+                    break
+        else:
+            result.append(i)
+    if not result:
+        print("No Match!")
+    else:
+        print(*result)
+
+# Reading input
+t = int(input())
+for _ in range(t):
+    p, v = input().split()
+    virusIndices(p, v)
